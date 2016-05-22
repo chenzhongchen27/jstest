@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas test</title>
+</head>
+<body>
+	<canvas id="drawing"></canvas>
+	<script type="text/javascript">
+		var dr=document.getElementById("drawing");//默认大小为300*150
+		if(dr.getContext){
+			var context=dr.getContext("2d");
+			context.fillStyle="#ff0000";
+			context.fillRect(10,10,50,50);
+			context.strokeStyle="rgba(0,0,200,1)";
+			context.lineWidth="5";
+			
+			context.strokeRect(5,5,60,60);
+
+			//写字
+			context.textAlign="center";
+			context.textBaseline="top";
+			context.font="20px Arial";//font family不能省略
+			context.fillText("hello world",80,80);
+			console.log(context.measureText("hello world").width);
+
+			//画出圆心,也即文字点位点
+			context.beginPath();
+			context.strokeStyle="green";
+			//context.lineWidth="1";
+			context.lineCap="butt";//线条末端形状 butt,平头 round，圆头  square，方头
+			context.arc(80,80,5,0,1*Math.PI,false);
+			context.stroke();
+
+			var imgURI=dr.toDataURL("image/png");
+			var image=document.createElement("img");
+			image.src=imgURI;
+			document.body.appendChild(image);
+		} 
+	</script>
+</body>
+</html>

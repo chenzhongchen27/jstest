@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.11-23:30;继承</title>
+	<script type="text/javascript">
+	/**
+	 * 寄生构造函数模式
+	 * @return {[type]} [description]
+	 */
+/*	function createArray(){
+		var o=new Array();
+		o.push.apply(o,arguments);
+		o.toPipeString=function(){
+			return this.join('|');
+		}
+		console.log(arguments);
+		return o;
+	}
+	var newarr=new createArray("name","age","task");
+	console.log(newarr);
+	console.log(newarr.toPipeString());*/
+
+
+	function subType(){
+		this.name="123";
+	}
+	function superType(){}
+	subType.prototype={
+		constructor:superType,
+		a:3,
+		b:"一句话"
+	}
+	var o=new subType(); 
+	// console.log(o instanceof Object);
+	// console.log(o.constructor);
+	var p=Object(subType.prototype); //实验object（）
+		for(var i in p){
+		console.log(i);
+	}
+	</script>
+</head>
+<body>
+	<p>构造器与继承</p>
+</body>
+</html>

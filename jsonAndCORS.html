@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSONP和CORS的实现</title>
+</head>
+<body>
+	<ul>
+		<li>用XHR取数据</li>
+		<li>用script取数据</li>
+		<li>用script将数据存起来</li>
+	</ul>
+	<script type="text/javascript">var log=console.log.bind(console);
+		log("log能用");
+	</script>
+	<script type="text/javascript" src="jsonp.php?callback=log&type=json"></script>
+
+
+<!-- 	<script type="text/javascript">
+var log=console.log.bind(console);
+var xhr=new XMLHttpRequest();
+xhr.onreadystatechange=function(){
+	log(xhr.readyState);
+	if(xhr.readyState==4){
+		if(xhr.status>=200&&xhr.status<300||xhr.status==304){
+			log(xhr.responseText);
+		}
+	}  
+}
+xhr.onerror=function(){
+	log('error发生 '+xhr.readyState);
+}
+xhr.onload=function(){
+	log('load发生 '+xhr.readyState);
+}
+xhr.onabort=function(){
+	log('abort发生 '+xhr.readyState);
+}
+xhr.onloadend=function(){
+	log('loadend发生 '+xhr.readyState);
+}
+xhr.onloadstart=function(){
+	log('loadstart发生 '+xhr.readyState);
+}
+xhr.onprogress=function(){
+	log('progress发生 '+xhr.readyState);
+}
+xhr.onptimeout=function(){
+	log('ptimeout发生 '+xhr.readyState);
+}
+xhr.open('post','http://www.firstfly.cn/txt1.php?na=jkljl',true);
+xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+//	xhr.setRequestHeader('sdfwe','application/x-www-form-urlencoded');
+xhr.send("name1=se");
+</script>   -->
+</body>
+</html>
